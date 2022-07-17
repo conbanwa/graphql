@@ -6,8 +6,7 @@ import (
 	"io"
 	"reflect"
 	"sort"
-
-	"github.com/conbanwa/graphql/ident"
+	"strings"
 )
 
 func constructQuery(v interface{}, variables map[string]interface{}) string {
@@ -117,7 +116,7 @@ func writeQuery(w io.Writer, t reflect.Type, inline bool) {
 				if ok {
 					io.WriteString(w, value)
 				} else {
-					io.WriteString(w, ident.LintName(f.Name))
+					io.WriteString(w, strings.ToUpper(f.Name[:1])+(f.Name[1:]))
 				}
 			}
 			writeQuery(w, f.Type, inlineField)

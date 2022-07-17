@@ -240,6 +240,7 @@ var brands = map[string]string{
 	"lfx":       "LFX",
 }
 
+
 func LintName(name string) (should string) {
 	// Fast path for simple cases: "_" and all lowercase.
 	if name == "_" {
