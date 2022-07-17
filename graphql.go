@@ -10,7 +10,7 @@ import (
 
 	"golang.org/x/net/context/ctxhttp"
 
-	"graphql/internal/jsonutil"
+	"github.com/conbanwa/graphql/internal/jsonutil"
 )
 
 // Client is a GraphQL client.
