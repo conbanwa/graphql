@@ -1,4 +1,4 @@
-module graphql
+module github.com/conbanwa/graphql
 
 go 1.18
 
