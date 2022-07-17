@@ -240,7 +240,6 @@ var brands = map[string]string{
 	"lfx":       "LFX",
 }
 
-
 func LintName(name string) (should string) {
 	// Fast path for simple cases: "_" and all lowercase.
 	if name == "_" {
@@ -291,14 +290,14 @@ func LintName(name string) (should string) {
 
 		// [w,i) is a word.
 		word := string(runes[w:i])
-		u := strings.ToUpper(word)
-		if _, ok := initialisms[u]; ok {
+		if u, ok := isInitialism(word); ok {
 			// Keep consistent case, which is lowercase only at the start.
-			if w == 0 && unicode.IsLower(runes[w]) {
-				u = strings.ToLower(u)
-			}
+			// if w == 0 && unicode.IsLower(runes[w]) {
+			u = strings.ToLower(u)
+			// }
 			// All the common initialisms are ASCII,
 			// so we can replace the bytes exactly.
+			u := strings.ToUpper(u[:1]) + (u[1:])
 			copy(runes[w:], []rune(u))
 		} else if w > 0 && strings.ToLower(word) == word {
 			// already all lowercase, and not the first word, so uppercase the first character.
