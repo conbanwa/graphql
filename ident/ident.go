@@ -299,7 +299,8 @@ func LintName(name string) (should string) {
 			// so we can replace the bytes exactly.
 			u := strings.ToUpper(u[:1]) + (u[1:])
 			copy(runes[w:], []rune(u))
-		} else if w > 0 && strings.ToLower(word) == word {
+		} else
+		 if w > 0 && strings.ToLower(word) == word {
 			// already all lowercase, and not the first word, so uppercase the first character.
 			runes[w] = unicode.ToUpper(runes[w])
 		}

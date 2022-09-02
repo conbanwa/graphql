@@ -16,3 +16,5 @@
 .DS_Store
 query_test.go
 example/
+*.js
+src/
