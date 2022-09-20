@@ -5,7 +5,7 @@ type Filter struct {
 	Skip         int
 	OrderBy      string
 	OrderDescend bool //逆序
-	Where        map[string]string
+	// Where        map[string]string
 }
 
-// @version 0.2.0
+// @version 0.2.1
